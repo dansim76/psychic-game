@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Psychic Game</title>
+</head>
+<body>
+	<h1><b>The Psychic Game</h1>
+
+
+<div id="game">
+	<h2> Guess what letter I'm thinking of </h2>
+	<p> Total Wins: </p>
+	<p> Total Losses: </p>
+	<p> Guesses Left :</p>
+	<p> You Guesses so far: </p>
+</div>
+	<script type="text/javascript">
+
+
+
+	var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+	var win =0;
+	var losses = 0;
+	var guessLeft = 10;
+	var guessSofar = [];
+
+
+	document.onkeyup = function(event){
+	
+
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); //taking in user guess
+        var computerGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)]; //computer selects random letter
+        guessSofar.push(userGuess);
+	if (userGuess === computerGuess){
+		win++;
+		alert('you got it right');
+		guessLeft = 10;		
+		guessSoFar.length = 0;
+
+		}
+	else if(guessLeft === 0){
+		alert('You lost');
+		losses++;
+		guessLeft = 9;
+	}
+
+	else if(userGuess !== computerGuess){
+		guessLeft--;
+		alert('wrong guess');
+
+
+	}
+
+var everything = "<h1> The Psychic Game</h1>" + "<h2>Guess What letter Im thinking of!</h2>"+ "<p>Total wins: " + win + "</p>" + "<p> total Losses:" + losses + "</p>" + "<p> Guesses Left: " + guessLeft+ "</p>" + "Your Guesses so far: " + guessSofar + "</p>";
+document.querySelector('#game').innerHTML = everything;
+
+
+
+
+
+	}
+
+</script>
+
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+	
+</body>
+</html>
